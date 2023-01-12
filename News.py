@@ -2,13 +2,17 @@ import time
 import random
 import math
 Balance=0
-SavedataB = open("News_Game.txt","w")
-SavedataB.write(Balance)
+SavedataB = open("Scale_Var.txt","r")
+Balance=SavedataB.read()
 SavedataB.close()
-peace=0
-Chaos=0
-plays=0
-Balance=0 or SavedataB.read()
+savedatapeace = open("Zen_Var.txt","r")
+peace=savedatapeace.read()
+savedatapeace.close()
+savedatachaos = open("Khorne_Var.txt","r")
+Chaos=savedatachaos.read()
+savedataplay = open("Times_Played.txt","r")
+plays=savedataplay.read()
+savedataplay.close()
 def game():
     panik=10
     plays=plays+1
@@ -72,6 +76,15 @@ def game():
         SavedataB = open("News_Game.txt","w")
         SavedataB.write(Balance)
         SavedataB.close()
+        savedatachaos = open("Khorne_Var.txt","w")
+        savedatachaos.write(Chaos)
+        savedatachaos.close
+        savedatapeace = open("Zen_Var.txt","w")
+        savedatapeace.write(peace)
+        savedatapeace.close
+        savedataplay = open("Times_Played.txt","w")
+        savedataplay.write(plays)
+        savedataplay.close
     if Balance >10 and Chaos == 0:
         "You proved that you are dedicated to us you are forever in are grace"
         peace=peace+1
