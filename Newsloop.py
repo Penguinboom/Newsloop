@@ -1,6 +1,8 @@
+import keyboard
 import time
 import random
 import math
+a=1
 Balance=0
 SavedataB = open("Scale_Var.txt","r")
 Balance=SavedataB.read()
@@ -11,45 +13,46 @@ savedatapeace.close()
 savedatachaos = open("Khorne_Var.txt","r")
 Chaos=savedatachaos.read()
 savedataplay = open("Times_Played.txt","r")
-plays=savedataplay.read()
+plays=savedataplay
 savedataplay.close()
+asphalt=open("Answer", "r")
+asphalt.close()
+viewers=random.randint(200,750)
 def game():
     panik=10
-    plays=plays+1
-    if 7<plays>5:
-        print("The loop It's sickeni")
     input("Press Enter to start...")
     time.sleep(3)
-    if plays>3 and Balance<-3:
-        print("Everny time you comge he")
     print("To complete the game you must become the leading news broadcaster:")
     print("At random intervals you will need to select what event you want to report on good luck")
-    if plays>10:
-        print("Just leave we beeg of ryuo")
-    viewers=random.randint(200,750)
-    reports=["Fire man saves cat stuck on tree","Supply issues cause prices to rise"]
+    reports=["Fire man saves cat stuck on tree","Supply issues cause prices to rise","Gas prices rise"]
     reports[1]="Fire man saves cat stuck on tree"
     reports[-1]="Supply issues cause prices to rise"
-    while viewers<random.randint(1000000,6350000)*plays:
+    reports[-1]="Gas prices rise"
+    while viewers<random.randint(1000000,6350000):
         time.sleep(random.randint(6,20))
         Choice1=random.choice(reports)
         Choice2=random.choice(reports)
         Choice3=random.choice(reports)
-        answer=int(input("1.",Choice1,"2.",Choice2,"3.",Choice3))
+        print("1.",Choice1,"2.",Choice2,"3.",Choice3)
+        answer=input()
         if answer == 1:
             Balance=Balance+reports.index(Choice1)
             answer=Choice1
+            asphalt=open("Answer", "w")
+            asphalt.write(answer)
+            asphalt.close()
         elif answer == 2:
-            Balance=Balance+reports.index(Choice2)
             answer=Choice2
+            asphalt=open("Answer", "w")
+            asphalt.write(answer)
+            asphalt.close()
         elif answer == 3:
-            Balance=Balance+reports.index(Choice3)
             answer=Choice3
-        if reports.index(answer)>0:
-            panik=panik+reports.index(answer)*2
-            viewers=viewers+random.randint(10*1+Balance,-10*1+Balance)
-        if reports.index(answer)<=0:
-            viewers=viewers+random.randint(10*1+-Balance,50*1+-Balance)
+            asphalt=open("Answer", "w")
+            asphalt.write(answer)
+            asphalt.close() 
+        Balance=Balance+asphalt.read()        
+        viewers=viewers+random.randint(20,86)
         print("Your story was watched by ", viewers," people.")
         if Balance ==-2:
             reports[-2]="Robbery at Local Bank"
