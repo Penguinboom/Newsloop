@@ -2,49 +2,55 @@ import time
 import random
 import math
 global Balance
-Balance=int
-int: Balance=0
+Balance=0
 input("Press Enter to start...")
 time.sleep(3)
 print("To complete the game you must become the leading news broadcaster:")
+time.sleep(2)
+global name 
+print("But you can't do that without a company name so tell me, what is the name of your internationally local news network?")
+name=input()
+if name == "":
+    name="Internationally Local News Network"
 print("At random intervals you will need to select what event you want to report on good luck")
 global viewers
 viewers=random.randint(200,750)
-global reports
-reports=["Fire man saves cat stuck on tree","Supply issues cause prices to rise",]
-reports[1]="Fire man saves cat stuck on tree"
-reports[3]="Supply issues cause prices to rise"
-while viewers<random.randint(1000000,6350000):
-    time.sleep(random.randint(3,10))
-    Choice1=random.choice(reports[1])
-    Choice2=random.choice(reports[2])
-    Choice3=random.choice(reports)
-    Report=[Choice1, Choice2, Choice3]
-    global answer
-    answer=input(Report)
-    if answer==1:
-        answer=1
-    if answer==2:
-        answer=2
-    if answer==3:
-        answer=3 
-    answer=int
-    viewers=viewers+random.randint(10,30)*answer
-    print("Your story was watched by ", viewers," people.")
-    if Balance==-1:
-        reports[2]="Robbery at Local Bank"
-        reports[2]="Man Killed by Local Police"
-        reports[2]="Woman Killed by Local Police"
-    if Balance==1:
-        reports[2]="Celebrity suprises, Local Kid with Cancer"
-    if Balance==-2:
-        reports[3]="Shelves empty due to supply chain issues"
-        reports[3]="Unprecedented reports of hospitalizations due to the flu."
-    if Balance==2:
-        reports[3]="Donations to The Red Cross have drasticly increased"
-        reports[3]="New road has been constructed"
-    if Balance==-3:
-        reports[4]="Crime rates have increased drasticly."
-        reports[4]="New illegal drug has been discovered by local authorities"
-        reports[4]="Shooter kills 5 people at Local High School"
-        reports[4]="Reported sightings of aliens replacing humans"
+class reports:
+    instances = []
+    def __init__(self, headline, body, effect,):
+        self.headline = headline
+        self.body = body
+        self.effect = effect
+        __class__.instances.append(self)
+effect= float
+a1= reports("Fire Fighters Save Cat", "Filler text", 1.4)
+a2= reports("Bean production slows down", "Filler text", -1.45)
+a3= reports("Man Charged with Crime Escapes", "Filler Text", -1.5)
+a4= reports("Person Gives Money to People", "Filler Text", 1.5)
+a5= reports("Sport Team, Wins Sport Game", "filler text", 1.47)
+a6= reports("Person tripped due to bad side walk", "filler text", -1.75)
+global preevent
+preevent= a6
+while 1<2:
+    viewers=viewers
+    randIndex = random.randrange(len(reports.instances))
+    randreport = reports.instances[randIndex]
+    global event
+    events =randreport    
+    if not events==preevent:
+        print("Boss, we found out that ", events.headline, "Do you like it? (y or n)")
+        answer=input()
+        proceed="y" or "Y" 
+        if answer==proceed:
+            viewers += round(random.randint(10,30)*abs(events.effect)) 
+            Balance +=(events.effect) 
+            print("Your story was watched by ", viewers," people.")
+            print(Balance)
+        else:
+            print("Sorry boss we'll try and find something else")
+        preevent=events
+    time.sleep(random.randint(2,5))
+    if Balance <= -6:
+        a7= reports("Bean Prices Rise", "Filler Text", -2)
+        a8= reports("Crime Commited by cat", "filler text", -1.9)
+        a9= reports("Man Charged with Crime helps Person", "Filler Text", 1.75)
